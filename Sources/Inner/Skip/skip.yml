@@ -1,0 +1,9 @@
+# Skip Lite: transpile this module to Kotlin.
+skip:
+  mode: 'transpiled'
+  # Mirrors the real-world setup this was found in: the Kotlin package is named after the
+  # umbrella, so a consumer's `import InnerUmbrella` (which skipstone turns into
+  # `import inner.umbrella.*`) resolves on the Kotlin side and the Android build succeeds.
+  # Without this override the Gradle build fails with unresolved references instead of
+  # silently dropping the views: same root cause, louder symptom.
+  package: 'inner.umbrella'
