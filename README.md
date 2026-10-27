@@ -50,17 +50,18 @@ public struct DemoView: View {
 `Inner`'s `skip.yml` sets `package: 'inner.umbrella'`. That mirrors the real project this was
 found in: the Kotlin package is named after the umbrella, so a consumer's `import InnerUmbrella`
 (which skipstone turns into `import inner.umbrella.*`) resolves on the Android side. Without the
-override, the Gradle build fails with unresolved references instead of dropping the views silently.
-The root cause is the same either way.
+override, we expect the Gradle build to fail with unresolved references instead of dropping the views silently.
+(That last point is our expectation; the Gradle/Android build itself has not been run for this
+repro.) The root cause is the same either way.
 
 Pinned versions: skip 1.9.19, skip-foundation 1.4.8, skip-ui 1.64.0.
 
 ## Steps
 
-### macOS (Xcode 26 / Swift 6.x)
+### macOS (Xcode 26 / Swift 6.x) (not verified yet: the repro has so far only been run on Linux)
 
 ```sh
-git clone https://github.com/daniboybye/skip-umbrella-viewbuilder-repro
+git clone https://github.com/daniboybye/skip-umbrella-viewbuilder-repro   # or: git clone skip-umbrella-viewbuilder-repro.bundle
 cd skip-umbrella-viewbuilder-repro
 
 # Transpile only (no Android toolchain needed):
