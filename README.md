@@ -61,7 +61,7 @@ Pinned versions: skip 1.9.19, skip-foundation 1.4.8, skip-ui 1.64.0.
 ### macOS (Xcode 26 / Swift 6.x) (not verified yet: the repro has so far only been run on Linux)
 
 ```sh
-git clone https://github.com/daniboybye/skip-umbrella-viewbuilder-repro   # or: git clone skip-umbrella-viewbuilder-repro.bundle
+git clone https://github.com/daniboybye/skip-umbrella-viewbuilder-repro
 cd skip-umbrella-viewbuilder-repro
 
 # Transpile only (no Android toolchain needed):
